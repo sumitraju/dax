@@ -1,0 +1,3 @@
+Program = VAR indexVal = CONVERT(FIND(".",'CGPA'[Acad Program],1,BLANK()),INTEGER)
+RETURN
+IF(indexVal <= 3, "",LEFT('CGPA'[Acad Program], indexVal-1))

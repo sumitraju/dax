@@ -1,0 +1,2 @@
+GPA Met = IF('CGPA'[Program]=="BSE" || 'CGPA'[Program]=="BSC",
+SWITCH(TRUE(), 'CGPA'[4 Terms] == "YES" && 'CGPA'[AGPA]==0 && 'CGPA'[CGPA] >=2.0,"YES",'CGPA'[4 Terms] == "YES" && 'CGPA'[AGPA]>=2,"YES", 'CGPA'[4 Terms] == "NO" && 'CGPA'[AGPA]==0 && 'CGPA'[CGPA] >=2.7,"YES",'CGPA'[4 Terms] == "NO" && 'CGPA'[AGPA]>=2.7,"YES","NO"),IF('CGPA'[Program]=="ME" || 'CGPA'[Program]=="MSE" || 'CGPA'[Program]=="PHD",SWITCH(TRUE(),'CGPA'[CGPA] >=3,"YES","NO")))

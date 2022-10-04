@@ -1,0 +1,5 @@
+Max Date = VAR Dates = CALCULATE(MAX(Registrar[Term Date]),ALL(Registrar))
+VAR filtered = CALCULATE(MAX(Registrar[Term Date]),ALL(Registrar),
+FILTER ( Registrar, EARLIER ( Registrar[Student #] ) = Registrar[Student #]))
+RETURN
+filtered

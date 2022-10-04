@@ -1,0 +1,6 @@
+Requirements Met = VAR Color1 = FILTER (ALLSELECTED ( Colors[c1p3] ),RANKX ( ALLSELECTED ( Colors[c1p3] ), Colors[c1p3],, DESC ) = 1)
+VAR Color2 = FILTER (ALLSELECTED ( Colors[c2p3] ),RANKX ( ALLSELECTED ( Colors[c2p3] ), Colors[c2p3],, DESC ) = 1)
+VAR Color3 = FILTER (ALLSELECTED ( Colors[c3p3] ),RANKX ( ALLSELECTED ( Colors[c3p3] ), Colors[c3p3],, DESC ) = 1)
+
+RETURN
+IF([IsGPA]=="YES" && [Orientation]=="YES" && [Resume Review]=="YES" && [Signed Terms]=="YES",Color1,SWITCH(TRUE(),[IsGPA] <> "YES" && [IsGPA] <> "NO",Color2,Color3))

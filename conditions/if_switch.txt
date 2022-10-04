@@ -1,0 +1,63 @@
+(3.1.5)_Individual_&_Team_Work = VAR Color1 = FILTER (ALLSELECTED ( Colors[c1p1] ),RANKX ( ALLSELECTED ( Colors[c1p1] ), Colors[c1p1],, DESC ) = 1)
+VAR Color2 = FILTER (ALLSELECTED ( Colors[c2p1] ),RANKX ( ALLSELECTED ( Colors[c2p1] ), Colors[c2p1],, DESC ) = 1)
+VAR Color3 = FILTER (ALLSELECTED ( Colors[c3p1] ),RANKX ( ALLSELECTED ( Colors[c3p1] ), Colors[c3p1],, DESC ) = 1)
+VAR Color4 = FILTER (ALLSELECTED ( Colors[c4p1] ),RANKX ( ALLSELECTED ( Colors[c4p1] ), Colors[c4p1],, DESC ) = 1)
+VAR Color5 = FILTER (ALLSELECTED ( Colors[c5p1] ),RANKX ( ALLSELECTED ( Colors[c5p1] ), Colors[c5p1],, DESC ) = 1)
+VAR Color6 = FILTER (ALLSELECTED ( Colors[c6p1] ),RANKX ( ALLSELECTED ( Colors[c6p1] ), Colors[c6p1],, DESC ) = 1)
+
+VAR Interest_in_Work = SWITCH(Evaluations[Interest-in-Work],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Initiative_Pro_Activity = SWITCH(Evaluations[Initiative_Pro-Activity],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Planning_and_Organizing = SWITCH(Evaluations[Planning-and-Organizing],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Setting_Goals = SWITCH(Evaluations[Setting-Goals],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Adaptability = SWITCH(Evaluations[Adaptability],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Quality_of_Work = SWITCH(Evaluations[Quality-of-Work],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Quantity_of_Work_Productivity = SWITCH(Evaluations[Quantity-of-Work_Productivity],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Practicality = SWITCH(Evaluations[Practicality],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Teamwork = SWITCH(Evaluations[Teamwork],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Self_Assuredness = SWITCH(Evaluations[Self-Assuredness],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Leadership_Qualities = SWITCH(Evaluations[Leadership-Qualities],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+VAR Adaptability_and_Resourcefulness = SWITCH(Evaluations[Adaptability-and-Resourcefulness],Color1,"4",Color2,"3",Color3,"2",Color4,"1",Color5,"NA","0")
+
+VAR totalItems = 0
+VAR SumItems = 0
+
+VAR totalItems2 = IF(Interest_in_Work<>"NA",totalItems+Interest_in_Work,totalItems)
+VAR SumItems2 = IF(Interest_in_Work<>"NA",SumItems+1,SumItems)
+
+VAR totalItems3 = IF(Initiative_Pro_Activity<>"NA",totalItems2+Initiative_Pro_Activity,totalItems2)
+VAR SumItems3 = IF(Initiative_Pro_Activity<>"NA",SumItems2+1,SumItems2)
+
+VAR totalItems4 = IF(Planning_and_Organizing<>"NA",totalItems3+Planning_and_Organizing,totalItems3)
+VAR SumItems4 = IF(Planning_and_Organizing<>"NA",SumItems3+1,SumItems3)
+
+VAR totalItems5 = IF(Setting_Goals<>"NA",totalItems4+Setting_Goals,totalItems4)
+VAR SumItems5 = IF(Setting_Goals<>"NA",SumItems4+1,SumItems4)
+
+VAR totalItems6 = IF(Adaptability<>"NA",totalItems5+Adaptability,totalItems5)
+VAR SumItems6 = IF(Adaptability<>"NA",SumItems5+1,SumItems5)
+
+VAR totalItems7 = IF(Quality_of_Work<>"NA",totalItems6+Quality_of_Work,totalItems6)
+VAR SumItems7 = IF(Quality_of_Work<>"NA",SumItems6+1,SumItems6)
+
+VAR totalItems8 = IF(Quantity_of_Work_Productivity<>"NA",totalItems7+Quantity_of_Work_Productivity,totalItems7)
+VAR SumItems8 = IF(Quantity_of_Work_Productivity<>"NA",SumItems7+1,SumItems7)
+
+VAR totalItems9 = IF(Practicality<>"NA",totalItems8+Practicality,totalItems8)
+VAR SumItems9 = IF(Practicality<>"NA",SumItems8+1,SumItems8)
+
+VAR totalItems10 = IF(Teamwork<>"NA",totalItems9+Teamwork,totalItems9)
+VAR SumItems10 = IF(Teamwork<>"NA",SumItems9+1,SumItems9)
+
+VAR totalItems11 = IF(Self_Assuredness<>"NA",totalItems10+Self_Assuredness,totalItems10)
+VAR SumItems11 = IF(Self_Assuredness<>"NA",SumItems10+1,SumItems10)
+
+VAR totalItems12 = IF(Leadership_Qualities<>"NA",totalItems11+Leadership_Qualities,totalItems11)
+VAR SumItems12 = IF(Leadership_Qualities<>"NA",SumItems11+1,SumItems11)
+
+VAR totalItems13 = IF(Adaptability_and_Resourcefulness<>"NA",totalItems12+Adaptability_and_Resourcefulness,totalItems12)
+VAR SumItems13 = IF(Adaptability_and_Resourcefulness<>"NA",SumItems12+1,SumItems12)
+
+VAR averageValue = totalItems13/SumItems13
+
+RETURN
+SWITCH(TRUE(),averageValue >=3.5,Color1,averageValue <3.5 && averageValue >=2.5,Color2,averageValue <2.5 && averageValue >=1.5,Color3,averageValue <1.5,Color4,Color6)

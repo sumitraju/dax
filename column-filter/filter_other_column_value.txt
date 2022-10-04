@@ -1,0 +1,8 @@
+Currently Employed = VAR _SEL =
+SELECTCOLUMNS (Registrar,"Employed",Registrar[Student #])
+VAR Finish = CALCULATE (
+    FIRSTNONBLANK ( Registrar[Finisheddd], 1 ),
+    FILTER ( ALL ( Registrar ), Registrar[Student #] = Dashboard[Student ID] )
+)
+RETURN
+IF ( [Student ID] IN _SEL && Finish == "NO","YES","NO")

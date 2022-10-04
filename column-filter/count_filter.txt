@@ -1,0 +1,5 @@
+Total Terms = 
+COUNTX (
+    FILTER ( Registrar, EARLIER ( Registrar[Student #] ) = Registrar[Student #] ),
+    Registrar[Student #]
+)*4

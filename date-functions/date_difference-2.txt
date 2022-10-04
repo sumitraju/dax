@@ -1,0 +1,4 @@
+Finisheddd = VAR _dateDiffer = 
+DATEDIFF(Registrar[Term Date],TODAY(),MONTH)
+RETURN
+SWITCH(true(),CONVERT(_dateDiffer,INTEGER) >= Registrar[Length],"YES","NO")

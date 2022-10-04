@@ -1,0 +1,4 @@
+Current Term = VAR _dateDiffer = 
+DATEDIFF('CGPA'[Current Start Date],TODAY(),MONTH)
+RETURN
+SWITCH(true(),CONVERT(_dateDiffer,INTEGER) <= 0,0,VALUE(_dateDiffer/4))

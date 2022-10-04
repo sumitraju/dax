@@ -1,0 +1,1 @@
+4 Terms = if('CGPA'[Current Term]>=5,"YES","NO")

@@ -1,0 +1,13 @@
+Leadership-Qualities = VAR columnName = Evaluations[LEADERSHIP QUALITIES: the belief in one's own ability, power, and judgement]
+VAR indexVal = CONVERT(FIND(")",columnName,1,BLANK()),INTEGER)
+VAR alphabet = IF(indexVal <= 1, "",LEFT(columnName, indexVal-1))
+
+VAR Color1 = FILTER (ALLSELECTED ( Colors[c1p1] ),RANKX ( ALLSELECTED ( Colors[c1p1] ), Colors[c1p1],, DESC ) = 1)
+VAR Color2 = FILTER (ALLSELECTED ( Colors[c2p1] ),RANKX ( ALLSELECTED ( Colors[c2p1] ), Colors[c2p1],, DESC ) = 1)
+VAR Color3 = FILTER (ALLSELECTED ( Colors[c3p1] ),RANKX ( ALLSELECTED ( Colors[c3p1] ), Colors[c3p1],, DESC ) = 1)
+VAR Color4 = FILTER (ALLSELECTED ( Colors[c4p1] ),RANKX ( ALLSELECTED ( Colors[c4p1] ), Colors[c4p1],, DESC ) = 1)
+VAR Color5 = FILTER (ALLSELECTED ( Colors[c5p1] ),RANKX ( ALLSELECTED ( Colors[c5p1] ), Colors[c5p1],, DESC ) = 1)
+VAR Color6 = FILTER (ALLSELECTED ( Colors[c6p1] ),RANKX ( ALLSELECTED ( Colors[c6p1] ), Colors[c6p1],, DESC ) = 1)
+
+RETURN
+SWITCH(alphabet,"a",Color1,"b",Color2,"c",Color3,"d",Color4,"e",Color5,Color6)

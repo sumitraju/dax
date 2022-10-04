@@ -1,0 +1,1 @@
+Term Date = SWITCH(Registrar[Term],"Winter",FORMAT(DATE(Registrar[Year], 1, 1), "yyyy-mm-dd"),"Summer",FORMAT(DATE(Registrar[Year], 5, 1), "yyyy-mm-dd"),"Fall",FORMAT(DATE(Registrar[Year], 9, 1), "yyyy-mm-dd"))
